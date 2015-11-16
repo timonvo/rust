@@ -414,6 +414,7 @@ impl Target {
             mipsel_unknown_linux_gnu,
             powerpc_unknown_linux_gnu,
             arm_unknown_linux_gnueabi,
+            arm_unknown_linux_musleabi,
             arm_unknown_linux_gnueabihf,
             aarch64_unknown_linux_gnu,
             x86_64_unknown_linux_musl,

@@ -1169,6 +1169,13 @@ do
             fi
             ;;
 
+        *-musleabi)
+            if [ ! -f $CFG_MUSL_ROOT/lib/libc.a ]
+            then
+                err "musl libc $CFG_MUSL_ROOT/lib/libc.a not found (MUSL_ROOT should point to the target triple's directory under the MUSL cross-compiler tree, not the top-level directory)"
+            fi
+            ;;
+
         *-msvc)
             # Currently the build system is not configured to build jemalloc
             # with MSVC, so we omit this optional dependency.
