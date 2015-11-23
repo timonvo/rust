@@ -1113,7 +1113,9 @@ fn add_local_native_libraries(cmd: &mut Linker, sess: &Session) {
         cmd.link_whole_staticlib(l, &search_path);
     }
 
-    cmd.hint_dynamic();
+    if sess.target.target.options.dynamic_linking {
+      cmd.hint_dynamic();
+    }
 
     for &(ref l, kind) in others {
         match kind {
