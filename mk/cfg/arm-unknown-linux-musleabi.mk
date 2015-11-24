@@ -9,9 +9,9 @@ CFG_LIB_NAME_arm-unknown-linux-musleabi=lib$(1).so
 CFG_STATIC_LIB_NAME_arm-unknown-linux-musleabi=lib$(1).a
 CFG_LIB_GLOB_arm-unknown-linux-musleabi=lib$(1)-*.so
 CFG_JEMALLOC_CFLAGS_arm-unknown-linux-musleabi := -D__arm__ -mfpu=vfp $(CFLAGS)
-CFG_GCCISH_CFLAGS_arm-unknown-linux-musleabi := -Wall -Werror -g -fPIC -D__arm__ -mfpu=vfp $(CFLAGS)
-CFG_GCCISH_CXXFLAGS_arm-unknown-linux-musleabi := -fno-rtti $(CXXFLAGS)
-CFG_GCCISH_LINK_FLAGS_arm-unknown-linux-musleabi := -fPIC -g
+CFG_GCCISH_CFLAGS_arm-unknown-linux-musleabi := -mthumb -mcpu=cortex-a9 -march=armv7-a -Wall -Werror -g -fPIC -D__arm__ -mfloat-abi=softfp -msoft-float -mfpu=vfp $(CFLAGS)
+CFG_GCCISH_CXXFLAGS_arm-unknown-linux-musleabi := -mthumb -mcpu=cortex-a9 -march=armv7-a -fno-rtti -g -D__arm__ -mfloat-abi=softfp -msoft-float -mfpu=vfp $(CXXFLAGS)
+CFG_GCCISH_LINK_FLAGS_arm-unknown-linux-musleabi := -g
 CFG_GCCISH_DEF_FLAG_arm-unknown-linux-musleabi :=
 CFG_LLC_FLAGS_arm-unknown-linux-musleabi :=
 CFG_INSTALL_NAME_arm-unknown-linux-musleabi =
