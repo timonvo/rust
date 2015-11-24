@@ -139,7 +139,8 @@ mod imp {
                              -1,
                              0);
         if alt_stack == MAP_FAILED {
-            panic!("failed to allocate an alternative stack");
+            println!("failed to allocate an alternative stack");
+            return Handler { _data: ptr::null_mut() };
         }
 
         let mut stack: libc::stack_t = mem::zeroed();

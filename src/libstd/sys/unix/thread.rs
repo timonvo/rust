@@ -248,8 +248,13 @@ pub mod guard {
                           -1,
                           0);
 
-        if result != stackaddr || result == MAP_FAILED {
-            panic!("failed to allocate a guard page");
+        if result == MAP_FAILED {
+            println!("failed to allocate a guard page (2) {:?} == {:?}", result, MAP_FAILED);
+            return None
+        }
+        if result != stackaddr {
+            println!("failed to allocate a guard page (1) {:?} != {:?}", result, stackaddr);
+            return None
         }
 
         let offset = if cfg!(target_os = "linux") {2} else {1};
