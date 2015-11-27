@@ -19,6 +19,7 @@ pub fn target() -> Target {
     // default objects, libs, etc.
     base.pre_link_args.push("-nostdlib".to_string());
     base.pre_link_args.push("-static".to_string());
+    base.pre_link_args.push("-Wl,--no-gc-sections".to_string());
 
     // At least when this was tested, the linker would not add the
     // `GNU_EH_FRAME` program header to executables generated, which is required
