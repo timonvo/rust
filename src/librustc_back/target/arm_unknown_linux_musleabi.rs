@@ -18,6 +18,10 @@ pub fn target() -> Target {
     base.pre_link_args.push("-nostdlib".to_string());
     base.pre_link_args.push("-static".to_string());
 
+    // Many of the symbols defined in compiler-rt are also defined in libgcc.
+    // Android's linker doesn't like that by default.
+    base.pre_link_args.push("-Wl,--allow-multiple-definition".to_string());
+
     // At least when this was tested, the linker would not add the
     // `GNU_EH_FRAME` program header to executables generated, which is required
     // when unwinding to locate the unwinding information. I'm not sure why this
