@@ -102,8 +102,10 @@ pub type _Unwind_Exception_Cleanup_Fn =
 #[cfg_attr(any(all(target_os = "linux", not(any(target_env = "musl", target_env = "musleabi"))),
                target_os = "freebsd"),
            link(name = "gcc_s"))]
-#[cfg_attr(all(target_os = "linux", any(target_env = "musl", target_env = "musleabi"), not(test)),
+#[cfg_attr(all(target_os = "linux", any(target_env = "musl"), not(test)),
            link(name = "unwind", kind = "static"))]
+#[cfg_attr(all(target_os = "linux", any(target_env = "musleabi"), not(test)),
+           link(name = "gcc", kind = "static"))]
 #[cfg_attr(any(target_os = "android", target_os = "openbsd"),
            link(name = "gcc"))]
 #[cfg_attr(all(target_os = "netbsd", not(target_vendor = "rumprun")),
