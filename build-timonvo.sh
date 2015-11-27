@@ -2,7 +2,9 @@
     --musl-root=/home/timonvo/Applications/musl/arm-linux-musleabi/arm-linux-musleabi \
     --prefix=/home/timonvo/Applications/musl/arm-linux-musleabi/arm-linux-musleabi \
     --disable-docs \
-    --enable-fast-make --disable-stage0-landing-pads \
-    --disable-jemalloc
+    --enable-fast-make \
+    --disable-stage0-landing-pads \
+    --disable-jemalloc \
+    --disable-manage-submodules
     #--disable-optimize --disable-optimize-cxx --disable-optimize-llvm \
     #--disable-optimize-tests \
