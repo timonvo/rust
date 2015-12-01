@@ -72,7 +72,7 @@ pub fn target() -> Target {
     base.position_independent_executables = false;
     base.features = "-v6,-neon,+soft-float".to_string();
     Target {
-        llvm_target: "armv7-unknown-linux-musleabi".to_string(),
+        llvm_target: "armv7-unknown-linux-gnueabi".to_string(),
         target_endian: "little".to_string(),
         target_pointer_width: "32".to_string(),
         arch: "arm".to_string(),
