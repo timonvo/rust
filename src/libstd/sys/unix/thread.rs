@@ -324,7 +324,7 @@ pub mod guard {
 // case.  We previously used weak linkage (under the same assumption),
 // but that caused Debian to detect an unnecessarily strict versioned
 // dependency on libc6 (#23628).
-#[cfg(target_os = "linux")]
+#[cfg(all(target_os = "linux", not(any(target_env = "musleabi", target_env = "musl"))))]
 #[allow(deprecated)]
 fn min_stack_size(attr: *const libc::pthread_attr_t) -> usize {
     use dynamic_lib::DynamicLibrary;
@@ -354,7 +354,7 @@ fn min_stack_size(attr: *const libc::pthread_attr_t) -> usize {
 
 // No point in looking up __pthread_get_minstack() on non-glibc
 // platforms.
-#[cfg(not(target_os = "linux"))]
+#[cfg(any(target_env = "musl", target_env = "musleabi"))]
 fn min_stack_size(_: *const libc::pthread_attr_t) -> usize {
     PTHREAD_STACK_MIN as usize
 }
