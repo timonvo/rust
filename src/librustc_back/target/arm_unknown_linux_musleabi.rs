@@ -70,7 +70,7 @@ pub fn target() -> Target {
     base.dynamic_linking = false;
     base.has_rpath = false;
     base.position_independent_executables = false;
-    base.features = "-v6,-neon,+soft-float".to_string();
+    base.features = "+v6,-neon".to_string();
     Target {
         llvm_target: "armv7-unknown-linux-gnueabi".to_string(),
         target_endian: "little".to_string(),
