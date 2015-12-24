@@ -4,7 +4,7 @@
     --disable-docs \
     --enable-fast-make \
     --disable-stage0-landing-pads \
-    --disable-jemalloc \
     --disable-manage-submodules
+    #--disable-jemalloc \
     #--disable-optimize --disable-optimize-cxx --disable-optimize-llvm \
     #--disable-optimize-tests \
