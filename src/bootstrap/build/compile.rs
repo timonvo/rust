@@ -83,7 +83,7 @@ pub fn std_link(build: &Build,
     add_to_sysroot(&out_dir, &libdir);
 
     if target.contains("musl") &&
-       (target.contains("x86_64") || target.contains("i686")) {
+       (target.contains("x86_64") || target.contains("i686") || target.contains("arm")) {
         copy_third_party_objects(build, target, &libdir);
     }
 }
