@@ -35,7 +35,8 @@ use libc::{c_int, c_void, size_t};
 #[cfg_attr(target_os = "android", link(name = "gcc"))]
 #[cfg_attr(all(not(windows),
                not(target_os = "android"),
-               not(target_env = "musl")),
+               not(target_env = "musl"),
+               not(target_env = "musleabi")),
            link(name = "pthread"))]
 extern "C" {
     fn je_mallocx(size: size_t, flags: c_int) -> *mut c_void;

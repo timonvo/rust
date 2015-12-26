@@ -131,7 +131,8 @@ mod tests {
     #[test]
     #[cfg_attr(any(windows,
                    target_os = "android",  // FIXME #10379
-                   target_env = "musl"), ignore)]
+                   target_env = "musl",
+                   target_env = "musleabi"), ignore)]
     fn test_loading_cosine() {
         // The math library does not need to be loaded since it is already
         // statically linked in
