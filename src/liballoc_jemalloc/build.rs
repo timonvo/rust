@@ -40,6 +40,12 @@ fn main() {
     let cflags = compiler.args().iter().map(|s| s.to_str().unwrap())
                          .collect::<Vec<_>>().join(" ");
 
+    let cppflags = if target.contains("arm") {
+      "-DJEMALLOC_C11ATOMICS=1"
+    } else {
+      ""
+    };
+
     let mut cmd = Command::new("sh");
     cmd.arg(src_dir.join("../jemalloc/configure").to_str().unwrap()
                    .replace("C:\\", "/c/")
@@ -47,6 +53,7 @@ fn main() {
        .current_dir(&build_dir)
        .env("CC", compiler.path())
        .env("EXTRA_CFLAGS", cflags)
+       .env("CPPFLAGS", cppflags)
        .env("AR", &ar)
        .env("RANLIB", format!("{} s", ar.display()));
 
